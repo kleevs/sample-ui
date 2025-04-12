@@ -1,0 +1,21 @@
+{
+    "name": "@dev/build-tool",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "bin": {
+        "build-tool": "./bin/build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "fast-glob": "*",
+        "glob": "*",
+        "@swc/cli": "*",
+        "@swc/core": "*",
+        "@swc/jest": "*",
+        "typescript": "*",
+        "tsc-alias": "*",
+        "webpack": "*"
+    }
+}

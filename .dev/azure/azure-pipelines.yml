@@ -1,0 +1,87 @@
+trigger: none
+
+variables:
+  MajorVersion: 1
+  MinorVersion: 0
+  NEXT_TELEMETRY_DISABLED: 1
+
+name: $(MajorVersion).$(MinorVersion).$(Rev:r)
+
+pool:
+  vmImage: "ubuntu-latest"
+
+stages:
+- stage: build
+  displayName: Build
+  jobs:
+  - job:
+    displayName: Build
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: "18.x"
+      displayName: "Install Node.js"
+
+    - task: npmAuthenticate@0
+      inputs:
+        workingFile: ".npmrc"
+
+    - script: |
+        npm install -g pnpm
+      displayName: "Install pnpm"
+
+    - script: |
+        pnpm install
+      displayName: "pnpm install"
+
+    - script: |
+        chmod +x .dev/build-tool/bin/build-tool
+        pnpm build --no-cache 
+      displayName: "pnpm build"
+
+    - publish: $(System.DefaultWorkingDirectory)
+      artifact: drop
+
+- stage: release
+  displayName: Release
+  jobs:
+  - job: 
+    displayName: Build Docker Image
+    steps:
+    - checkout: none
+
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        artifactName: 'drop'
+        targetPath: $(Build.ArtifactStagingDirectory)/drop
+
+    - task: Docker@2
+      displayName: 'Build Docker Image'
+      inputs:
+        containerRegistry: 'klvsacr'
+        repository: 'create-monorepo'
+        command: 'build'
+        Dockerfile: '$(Build.ArtifactStagingDirectory)/drop/packages/next/Dockerfile'
+        buildContext: '$(Build.ArtifactStagingDirectory)/drop/packages/next'
+
+    - task: Docker@2
+      displayName: 'Push Docker Image'
+      inputs:
+        containerRegistry: 'klvsacr'
+        repository: 'create-monorepo'
+        command: 'push'
+
+- stage: deploy
+  displayName: Deploy
+  jobs:
+  - job: 
+    displayName: Deploy on App Service
+    steps:
+    - checkout: none
+    - task: AzureWebAppContainer@1
+      displayName: 'Azure Web App on Container Deploy'
+      inputs:
+        azureSubscription: 'klvs_group'
+        appName: 'klvswebapp'
+        containers: klvsacr.azurecr.io/create-monorepo:$(Build.BuildId)
+        appSettings: '-Port 3000'

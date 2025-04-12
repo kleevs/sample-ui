@@ -1,0 +1,55 @@
+{
+    "name": "@packages/app",
+    "version": "0.0.1",
+    "description": "",
+    "scripts": {
+      "dev": "webpack serve --open",
+      "build": "webpack"
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "keywords": [],
+    "author": "kleevs",
+    "license": "MIT",
+    "devDependencies": {
+        "@packages/user": "workspace: *",
+        "@types/react": "*",
+        "@types/react-dom": "*",
+        "react": "*",
+        "react-dom": "*",
+        "@babel/core": "*",
+        "@babel/preset-react": "*",
+        "@babel/preset-typescript": "*",
+        "babel-loader": "*",
+        "browserify-zlib": "*",
+        "css-loader": "*",
+        "dotenv-webpack": "*",
+        "https-browserify": "*",
+        "stream-browserify": "*",
+        "stream-http": "*",
+        "style-loader": "*",
+        "ts-loader": "*",
+        "typescript": "*",
+        "webpack": "*",
+        "webpack-cli": "*",
+        "webpack-dev-server": "*",
+        "@tailwindcss/postcss": "*",
+        "tailwindcss": "*",
+        "postcss": "*", 
+        "postcss-loader": "*", 
+        "postcss-preset-env": "*",
+        "source-map-loader": "*",
+        "react-router-dom": "*",
+        "@emotion/react": "*",
+        "@emotion/styled": "*",
+        "@mui/material": "*",
+        "@fontsource/roboto": "*",
+        "@mui/icons-material": "*",
+        "@mui/x-data-grid": "*",
+        "@mui/system": "*",
+        "@mui/styled-engine-sc": "*" 
+    }
+  }
+  

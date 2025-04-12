@@ -1,0 +1,29 @@
+{
+    "name": "@dev/test-tool",
+    "version": "1.0.0",
+    "description": "",
+    "author": "",
+    "license": "ISC",
+    "main": "dist/index.js",
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "build-tool"
+    },
+    "dependencies": {
+        "typescript": "*",
+        "jest": "*",
+        "@types/jest": "*",
+        "rimraf": "*",
+        "@testing-library/dom": "*",
+        "@testing-library/jest-dom": "*",
+        "@testing-library/react": "*",
+        "@testing-library/user-event": "*",
+        "@types/node": "*",
+        "@types/react": "*",
+        "jest-environment-jsdom": "*",
+        "react": "*",
+        "react-dom": "*",
+        "react-query": "*",
+        "react-use": "*"
+    }
+}

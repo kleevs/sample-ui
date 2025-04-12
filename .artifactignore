@@ -1,0 +1,7 @@
+.vs
+/node_modules
+.git
+.azure
+.vscode
+.gitignore
+!.next/**/node_modules

@@ -1,0 +1,31 @@
+{
+    "name": "@packages/user",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "tsbuild": "tsconfig.json",
+    "scripts": {
+        "demo": "demo",
+        "clean": "rimraf dist",
+        "build": "build-tool",
+        "watch": "build-tool -w",
+        "test": "jest --passWithNoTests"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/react": "*",
+        "@tanstack/react-query": "*",
+        "react": "*",
+        "typescript": "*",
+        "rimraf": "*",
+        "jest": "*",
+        "@types/jest": "*",
+        "@testing-library/dom": "*",
+        "@testing-library/react": "*",
+        "@types/react-dom": "*",
+        "@testing-library/jest-dom": "*",
+        "styled-components": "*",
+        "@emotion/css": "*"
+    }
+}

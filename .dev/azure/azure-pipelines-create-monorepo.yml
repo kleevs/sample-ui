@@ -1,0 +1,42 @@
+trigger: none
+
+variables:
+  MajorVersion: 2
+  MinorVersion: 0
+
+name: $(MajorVersion).$(MinorVersion).$(Rev:r)
+
+pool:
+  vmImage: "ubuntu-latest"
+
+stages:
+  - stage: publish
+    displayName: Publish
+    jobs:
+      - job:
+        displayName: Build and Publish package
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "18.x"
+            displayName: "Install Node.js"
+
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: ".npmrc"
+
+          - script: |
+              npm install -g pnpm
+            displayName: "Install pnpm"
+
+          - script: |
+              pnpm install
+            displayName: "pnpm install"
+
+          - script: |
+              pnpm build
+            displayName: "pnpm build"
+
+          - script: |
+              pnpm publish .dev/create-monorepo --no-git-checks
+            displayName: "publish create-monorepo"
