@@ -40,27 +40,12 @@ const searchCss = css`
 
 type UsersProps = {
     readonly AppLayout: FC<{title: string; breadcrumb: typeof breadcrumb; className?: string; children: ReactNode}>
-    readonly Grid: FC<{value: UserType[]; columns: any[]; count: number; page: number; pageSize: number; rowId: keyof UserType }>
+    readonly UserGrid: FC<{value: UserType[]; count: number; page: number; pageSize: number; }>
     readonly Input: FC<{label: string; value: string; onChange: (v: string) => void; className?: string; }>;
     readonly Button: FC<{ children: ReactNode; type: ButtonHTMLAttributes<HTMLButtonElement>['type']; className?: string; }>;
 };
 
-const columns = [
-    {
-        field: 'email',
-        headerName: 'Email'
-    },
-    {
-      field: 'firstName',
-      headerName: 'First name'
-    },
-    {
-      field: 'lastName',
-      headerName: 'Last name'
-    }
-];
-
-export function Users({ AppLayout, Grid, Input, Button }: UsersProps) {
+export function Users({ AppLayout, UserGrid, Input, Button }: UsersProps) {
     const [criteria, setCriteria] = useState({ email: '', lastName: '', firstName: ''});
     const [searchCriteria, setSearchCriteria] = useState({ email: '', lastName: '', firstName: ''});
     const getUsers = useCallback(() => loadUsers(searchCriteria), [loadUsers, searchCriteria]);
@@ -77,6 +62,6 @@ export function Users({ AppLayout, Grid, Input, Button }: UsersProps) {
                 <Button type='submit' data-testid='search' className={searchCss}>Rechercher</Button>
             </Block>
         </Form>
-        <Grid rowId='email' value={users} columns={columns} count={10} page={0} pageSize={10} />
+        <UserGrid value={users} count={10} page={0} pageSize={10} />
     </AppLayout>
 }
