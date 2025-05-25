@@ -4,13 +4,16 @@ import { Navbar } from './navbar';
 import { Breadcrumb } from './breadcrumb';
 
 type AppLayoutProps = {
-    readonly title: string;
-    readonly breadcrumb: ComponentProps<typeof Breadcrumb>['links']
     readonly Link: ComponentProps<typeof Breadcrumb>['Link']
+    readonly title?: string;
+    readonly breadcrumb?: ComponentProps<typeof Breadcrumb>['links']
     readonly children?: ReactNode;
+    readonly action?: ReactNode;
 }
 
 const Body = styled.div`
+    display: flex;
+    gap: 12px;
     padding: 12px;
 `
 
@@ -58,20 +61,20 @@ const Content = styled.div`
     gap: 24px;
 `
 
-export function AppLayout({ breadcrumb, children, title, Link, ...props }: AppLayoutProps) {
-    return <Container>
+export function AppLayout({ breadcrumb = [], children = <></>, title = '', Link, action, ...props }: AppLayoutProps) {
+    return <Container {...props}>
         <Navbar />
         <Breadcrumb links={breadcrumb} Link={Link} />     
         <PageHeader>
             <H1>{title}</H1>
         </PageHeader>
-        <Body {...props}>
-            <Explorer>
-                <H2>Explorer</H2>
+        <Body>
+            <Explorer className='mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6'>
+                <H2 className='text-xl font-semibold mb-4'>Explorer</H2>
                 <HR/>
                 <ExplorerContent>
-                    <Link  data-testid='home' href='/users'>Accueil</Link>
-                    <Link  data-testid='new-user' href='/users/new'>Nouvel utilisateur</Link>
+                    <Link  data-testid='home' href='/projects'>Accueil</Link>
+                    <Link  data-testid='calendar' href='/calendar'>Calendrier</Link>
                 </ExplorerContent>
             </Explorer>
             <Content>

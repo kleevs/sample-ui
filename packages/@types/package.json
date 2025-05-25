@@ -1,0 +1,14 @@
+{
+    "name": "@types/app",
+    "version": "1.0.0",
+    "description": "",
+    "types": "index.d.ts",
+    "tsbuild": "tsconfig.json",
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/react": "*",
+        "@types/jest": "*",
+        "@types/react-dom": "*"
+    }
+}

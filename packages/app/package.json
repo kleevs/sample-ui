@@ -14,7 +14,9 @@
     "author": "kleevs",
     "license": "MIT",
     "devDependencies": {
-        "@packages/user": "workspace: *",
+        "@types/app": "workspace: *",
+        "@packages/features": "workspace: *",
+        "@packages/components": "workspace: *",
         "@types/react": "*",
         "@types/react-dom": "*",
         "react": "*",
@@ -49,7 +51,7 @@
         "@mui/icons-material": "*",
         "@mui/x-data-grid": "*",
         "@mui/system": "*",
-        "@mui/styled-engine-sc": "*" 
+        "@mui/styled-engine-sc": "*"
     }
   }
   

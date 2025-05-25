@@ -7,7 +7,7 @@
     "deploy": "turbo run deploy",
     "dev": "turbo run watch dev",
     "test": "turbo run test",
-    "app:demo": "turbo run watch demo --filter=@packages/user -- "
+    "app:demo": "turbo run watch demo --filter=@packages/features -- "
   },
   "packageManager": "pnpm@7.13.2",
   "private": true,

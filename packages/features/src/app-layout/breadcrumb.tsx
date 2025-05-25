@@ -7,11 +7,6 @@ const Breadcrumbs = styled.div`
     padding: 12px;
 `
 
-type LinkProps = {
-    children: ReactNode;
-    href: string;
-};
-
 type BreadcrumbProps = {
     readonly links: { label: string; href: string; }[];
     readonly Link: FC<LinkProps>;

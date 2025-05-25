@@ -2,16 +2,16 @@ import React, { StrictMode } from "react";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import './tailwind.css';
 import './style.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Layout from './users/layout';
-import Users from './users/page';
-import User from './users/[id]/page';
+import { AppProvider, Projects, Project, User, Calendar } from '@packages/features';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
+import { CustomAppLayout, CustomLink } from "@packages/components";
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);
@@ -36,10 +36,17 @@ function App() {
         <CssBaseline />
         <BrowserRouter>
             <Routes>
-                <Route path="/">
-                    <Route path="users" element={<Layout><Outlet /></Layout>}>
-                        <Route index element={<Users />} />
-                        <Route path=":id" element={<User />} />
+                <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
+                    <Route path="users">
+                        <Route index element={<></>} />
+                        <Route path=":id" element={<User PageLayout={CustomAppLayout} />} />
+                    </Route>
+                    <Route path="projects">
+                        <Route index element={<Projects PageLayout={CustomAppLayout} Link={CustomLink} />} />
+                        <Route path=":id" element={<Project PageLayout={CustomAppLayout} Link={CustomLink} />} />
+                    </Route>
+                    <Route path="calendar">
+                        <Route index element={<Calendar PageLayout={CustomAppLayout} />} />
                     </Route>
                 </Route>
             </Routes>
