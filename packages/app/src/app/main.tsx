@@ -12,6 +12,7 @@ import { AppProvider, Projects, Project, User, Calendar } from '@packages/featur
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
 import { CustomAppLayout, CustomLink } from "@packages/components";
+import '@packages/design-system';
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);

@@ -1,0 +1,29 @@
+{
+    "name": "@packages/design-system",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "tsbuild": "tsconfig.json",
+    "scripts": {
+        "demo": "demo",
+        "clean": "rimraf dist",
+        "build": "build-tool",
+        "watch": "build-tool -w",
+        "test": "jest --passWithNoTests"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/app": "workspace:*",
+        "@types/react": "*",
+        "react": "*",
+        "@testing-library/react": "*",
+        "@types/react-dom": "*",
+        "typescript": "*",
+        "rimraf": "*",
+        "jest": "*",
+        "@types/jest": "*",
+        "@testing-library/dom": "*",
+        "@testing-library/jest-dom": "*"
+    }
+}

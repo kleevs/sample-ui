@@ -17,6 +17,7 @@
         "@types/app": "workspace: *",
         "@packages/features": "workspace: *",
         "@packages/components": "workspace: *",
+        "@packages/design-system": "workspace:*",
         "@types/react": "*",
         "@types/react-dom": "*",
         "react": "*",

@@ -1,4 +1,5 @@
 import React, { useState, FC, useMemo } from "react";
+import { Input } from '@design-system/components';
 
 type UserType = {
     email: string;
@@ -21,7 +22,8 @@ export function User({ PageLayout }: UserProps) {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        setUser(prev => ({ ...prev, [name]: value }));
+        console.log(e.target, { name, value })
+        setUser(prev => ({ ...prev, [name]: value ?? '' }));
     };
 
     const action = useMemo(() => <>
@@ -35,11 +37,11 @@ export function User({ PageLayout }: UserProps) {
     <div className="mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6">
         <h2 className="text-xl font-semibold mb-4">✏️ Informations sur l'utilisateur</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input name="firstName" value={user.firstName} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Nom" />
-          <input name="lastName" value={user.lastName} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Prénom" />
-          <input name="email" value={user.email} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="email" />
-          <input name="role" value={user.role} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="role" />
-          <input name="languages" value={user.languages} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Languee parlées" />
+          <Input name="firstName" value={user.firstName} onChange={handleInputChange} placeholder="Nom" />
+          <k-input  name="lastName" value={user.lastName} onChange={handleInputChange} placeholder="Prénom" />
+          <k-input  name="email" value={user.email} onChange={handleInputChange} placeholder="email" />
+          <k-input  name="role" value={user.role} onChange={handleInputChange} placeholder="role" />
+          <k-input  name="languages" value={user.languages} onChange={handleInputChange} placeholder="Languee parlées" />
         </div>
     </div>
   </PageLayout>

@@ -51,7 +51,8 @@ module.exports = {
       https: require.resolve('https-browserify'),
       http: require.resolve('stream-http'),
       stream: require.resolve('stream-browserify'),
-      zlib: require.resolve('browserify-zlib')
+      zlib: require.resolve('browserify-zlib'),
+      '@design-system/components': require.resolve('@packages/design-system')
     }
   }
 };
