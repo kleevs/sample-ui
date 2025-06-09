@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Input, Panel, PageLayout, Button } from '@packages/design-system';
+import { Input, Panel, PageLayout, Button } from '@packages/components';
 
 type UserType = {
     email: string;

@@ -4,11 +4,11 @@ import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
 
 
-const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout title="" breadcrumb={[]} Link={(props) => <a href={props.href}>{props.children}</a>} {...props} />
+const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout title="" breadcrumb={[]} {...props} />
 
 describe('app-layout', () => {
     it('should render without error', () => {
-        render(<Component title={''} breadcrumb={[]} Link={jest.fn(_ => <a />)}>test</Component>)
+        render(<Component title={''} breadcrumb={[]}>test</Component>)
     });
 
     it('should render explorer', async () => {

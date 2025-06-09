@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import { PageLayout } from '@packages/design-system';
+import { PageLayout } from '@packages/components';
 
 export function Calendar() {
   const [selectedDate, setSelectedDate] = useState(dayjs());

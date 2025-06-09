@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Link, PageLayout, Button } from '@packages/design-system';
+import { Link, PageLayout, Button } from '@packages/components';
 
 type ProjectType = {
     readonly id: number;

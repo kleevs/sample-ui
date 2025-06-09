@@ -52,7 +52,7 @@ module.exports = {
       http: require.resolve('stream-http'),
       stream: require.resolve('stream-browserify'),
       zlib: require.resolve('browserify-zlib'),
-      '@packages/design-system': require.resolve('@packages/design-system')
+      '@packages/components': require.resolve('@packages/components')
     }
   }
 };

@@ -1,5 +1,6 @@
-import React, { FC, Fragment, ReactNode } from 'react'
+import React, { FC, Fragment } from 'react'
 import styled from 'styled-components';
+import { Link } from '@packages/components';
 
 const Breadcrumbs = styled.div`
     display: flex;
@@ -9,10 +10,9 @@ const Breadcrumbs = styled.div`
 
 type BreadcrumbProps = {
     readonly links: { label: string; href: string; }[];
-    readonly Link: FC<LinkProps>;
 }
 
-export function Breadcrumb({ links, Link, ...props }: BreadcrumbProps) {
+export function Breadcrumb({ links, ...props }: BreadcrumbProps) {
     return <Breadcrumbs {...props} aria-label="breadcrumb">
         {links.map((l,i) => <Fragment key={i}>
             <Link href={l.href}>{l.label}</Link>

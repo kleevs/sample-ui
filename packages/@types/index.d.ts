@@ -1,14 +1,4 @@
-declare type PageLayoutProps = {
-    children: React.ReactNode;
-    action?: React.ReactNode;
-}
-
-declare type LinkProps = {
-    readonly children: React.ReactNode;
-    readonly href: string;
-}
-
-declare module "@packages/design-system" {
+declare module "@packages/components" {
     type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
     const Input: React.FC<InputProps>;
     type PanelProps = { children: React.ReactNode; title: React.ReactNode; }

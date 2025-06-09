@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel as PanelType } from '@packages/design-system';
+import { Panel as PanelType } from '@packages/components';
 
 export const Panel: typeof PanelType = ({children, title, ...props}) => (
     <div {...props} className="mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6">

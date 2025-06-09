@@ -345,6 +345,9 @@ importers:
       '@mui/x-data-grid':
         specifier: 7.20.0
         version: 7.20.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@mui/material@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@mui/system@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@packages/design-system':
+        specifier: workspace:*
+        version: link:../design-system
       '@packages/features':
         specifier: workspace:*
         version: link:../features
@@ -396,9 +399,6 @@ importers:
 
   packages/design-system:
     dependencies:
-      '@packages/features':
-        specifier: workspace:*
-        version: link:../features
       '@testing-library/dom':
         specifier: '*'
         version: 10.4.0
@@ -426,9 +426,6 @@ importers:
       react:
         specifier: 19.0.0
         version: 19.0.0
-      react-router-dom:
-        specifier: 7.4.0
-        version: 7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       rimraf:
         specifier: 5.0.7
         version: 5.0.7

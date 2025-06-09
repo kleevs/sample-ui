@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Link, PageLayout } from '@packages/design-system';
+import { Link, PageLayout } from '@packages/components';
 
 type Data = {
     id: number;
@@ -62,9 +62,8 @@ export function Projects() {
   return <PageLayout action={action}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.length > 0 ? (
-            filtered.map((project) => <Link href={`/projects/${project.id}`}>
+            filtered.map((project) => <Link key={project.id} href={`/projects/${project.id}`}>
               <div
-                key={project.id}
                 className="border dark:border-gray-700 rounded-2xl shadow-lg p-5 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:shadow-2xl transition"
               >
                 <h2 className="text-xl font-bold mb-1 text-blue-900 dark:text-blue-300">{project.title}</h2>

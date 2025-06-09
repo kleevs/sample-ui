@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as ButtonType } from '@packages/design-system';
+import { Button as ButtonType } from '@packages/components';
 
 export const Button: typeof ButtonType = ({children, onClick}) => (
     <button

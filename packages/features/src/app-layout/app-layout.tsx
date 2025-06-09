@@ -1,10 +1,10 @@
-import React, { ReactNode, ComponentProps, act } from 'react'
+import React, { ReactNode, ComponentProps } from 'react'
 import styled from 'styled-components';
 import { Navbar } from './navbar';
 import { Breadcrumb } from './breadcrumb';
+import { Link } from '@packages/components';
 
 type AppLayoutProps = {
-    readonly Link: ComponentProps<typeof Breadcrumb>['Link']
     readonly title?: string;
     readonly breadcrumb?: ComponentProps<typeof Breadcrumb>['links']
     readonly children?: ReactNode;
@@ -61,10 +61,10 @@ const Content = styled.div`
     gap: 24px;
 `
 
-export function AppLayout({ breadcrumb = [], children = <></>, title = '', Link, action, ...props }: AppLayoutProps) {
+export function AppLayout({ breadcrumb = [], children = <></>, title = '', action, ...props }: AppLayoutProps) {
     return <Container {...props}>
         <Navbar action={action} />
-        <Breadcrumb links={breadcrumb} Link={Link} />     
+        <Breadcrumb links={breadcrumb} />     
         <PageHeader>
             <H1>{title}</H1>
         </PageHeader>
