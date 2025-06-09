@@ -1,4 +1,5 @@
-import React, { useState, useEffect, FC, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { Link, PageLayout } from '@packages/design-system';
 
 type Data = {
     id: number;
@@ -8,17 +9,10 @@ type Data = {
     period: string;
 };
 
-type ProjectsProps = {
-  readonly PageLayout: FC<PageLayoutProps>;
-  readonly Link: FC<LinkProps>;
-}
-
-export function Projects({ PageLayout, Link }: ProjectsProps) {
+export function Projects() {
 	const [projects, setProjects] = useState<Data[]>([]);
 	const [search, setSearch] = useState("");
 	const [filtered, setFiltered] = useState<Data[]>([]);
-	const [newProject, setNewProject] = useState({ title: "", type: "", audience: "", period: "" });
-	const [editingId, setEditingId] = useState<number | null>(null);
 
 	useEffect(() => {
 		const mockData = [
@@ -39,34 +33,6 @@ export function Projects({ PageLayout, Link }: ProjectsProps) {
 		);
 	}, [search, projects]);
 
-	const handleInputChange = (e: any) => {
-		const { name, value } = e.target;
-		setNewProject(prev => ({ ...prev, [name]: value }));
-	};
-
-	const handleAddOrUpdateProject = () => {
-		if (!newProject.title || !newProject.type || !newProject.audience || !newProject.period) return;
-		if (editingId !== null) {
-		setProjects(prev => prev.map(p => (p.id === editingId ? { ...newProject, id: editingId } : p)));
-		setEditingId(null);
-		} else {
-		const newEntry = { ...newProject, id: Date.now() };
-		setProjects(prev => [...prev, newEntry]);
-		}
-		setNewProject({ title: "", type: "", audience: "", period: "" });
-	};
-
-	const handleEdit = (project: Data) => {
-		setNewProject({ title: project.title, type: project.type, audience: project.audience, period: project.period });
-		setEditingId(project.id);
-	};
-
-	const handleDelete = (id: number) => {
-		if (confirm("Êtes-vous sûr de vouloir supprimer ce projet ?")) {
-		setProjects(prev => prev.filter(p => p.id !== id));
-		}
-	};
-
 	const exportToCSV = () => {
 		const headers = ["Titre", "Type", "Public", "Période"];
 		const rows = filtered.map(p => [p.title, p.type, p.audience, p.period]);
@@ -80,7 +46,7 @@ export function Projects({ PageLayout, Link }: ProjectsProps) {
 		document.body.removeChild(link);
 	};
 
-  	const action = useMemo(() => <><input
+  	const action = useMemo(() => <div className="flex gap-2"><input
             type="text"
             className="border border-gray-300 dark:border-gray-600 p-2 rounded w-full sm:w-1/2 shadow-sm bg-white dark:bg-gray-800 dark:text-white"
             placeholder="🔍 Rechercher un projet..."
@@ -91,7 +57,7 @@ export function Projects({ PageLayout, Link }: ProjectsProps) {
             onClick={exportToCSV}
             className="bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition"
           >⬇️ Exporter CSV</button>
-	</>, [exportToCSV, setSearch]);
+	</div>, [exportToCSV, setSearch]);
 
   return <PageLayout action={action}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -105,10 +71,6 @@ export function Projects({ PageLayout, Link }: ProjectsProps) {
                 <p><span className="font-medium">🎭 Type :</span> {project.type}</p>
                 <p><span className="font-medium">👥 Public :</span> {project.audience}</p>
                 <p><span className="font-medium">📅 Période :</span> {project.period}</p>
-                <div className="mt-4 flex gap-2">
-                  <button onClick={() => handleEdit(project)} className="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-600">✏️ Modifier</button>
-                  <button onClick={() => handleDelete(project.id)} className="bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700">🗑️ Supprimer</button>
-                </div>
               </div>
             </Link>)
           ) : (

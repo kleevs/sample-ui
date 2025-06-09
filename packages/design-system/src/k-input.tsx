@@ -1,4 +1,3 @@
-// Define a custom Web Component
 class KInput extends HTMLElement {
     private input: HTMLInputElement;
 

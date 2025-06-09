@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components';
 
 const Container = styled.nav`
     display: flex;
     box-shadow: 0 0 5px grey;
+    align-items: center;
 `
 
 const Logo = styled.div`
@@ -15,10 +16,14 @@ const Middle = styled.div`
 `
 const Actions = styled.div``
 
-export function Navbar() {
+type NavbarProps = {
+    action: ReactNode;
+}
+
+export function Navbar({action}: NavbarProps) {
     return <Container>
         <Logo />
         <Middle />
-        <Actions>Actions</Actions>
+        <Actions>{action}</Actions>
     </Container>
 }

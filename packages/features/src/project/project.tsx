@@ -1,4 +1,5 @@
-import React, { useState, FC, useMemo } from "react";
+import React, { useState, useMemo } from "react";
+import { Link, PageLayout, Button } from '@packages/design-system';
 
 type ProjectType = {
     readonly id: number;
@@ -8,11 +9,6 @@ type ProjectType = {
     readonly period: string;
     readonly users: any[];
 };
-
-type ProjectProps = {
-  readonly PageLayout: FC<PageLayoutProps>;
-  readonly Link: FC<LinkProps>;
-}
 
 const DefaultProject: ProjectType = {
     id: 0,
@@ -24,7 +20,7 @@ const DefaultProject: ProjectType = {
     ]
 }
 
-export function Project({ PageLayout, Link }: ProjectProps) {
+export function Project() {
     const [project, setProject] = useState<ProjectType>(DefaultProject);
 
     const handleInputChange = (e: any) => {
@@ -33,10 +29,7 @@ export function Project({ PageLayout, Link }: ProjectProps) {
     };
 
     const action = useMemo(() => <>
-        <button
-            onClick={() => {}}
-            className="mt-4 bg-green-600 text-white px-6 py-2 rounded shadow hover:bg-green-700 transition"
-            >{"💾 Sauvegarder"}</button>
+        <Button onClick={() => {}}>{"💾 Sauvegarder"}</Button>
     </>, []);
 
   return <PageLayout action={action}>

@@ -1,4 +1,4 @@
-import React, { ReactNode, ComponentProps } from 'react'
+import React, { ReactNode, ComponentProps, act } from 'react'
 import styled from 'styled-components';
 import { Navbar } from './navbar';
 import { Breadcrumb } from './breadcrumb';
@@ -63,7 +63,7 @@ const Content = styled.div`
 
 export function AppLayout({ breadcrumb = [], children = <></>, title = '', Link, action, ...props }: AppLayoutProps) {
     return <Container {...props}>
-        <Navbar />
+        <Navbar action={action} />
         <Breadcrumb links={breadcrumb} Link={Link} />     
         <PageHeader>
             <H1>{title}</H1>

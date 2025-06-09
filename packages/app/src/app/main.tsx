@@ -11,7 +11,6 @@ import '@fontsource/roboto/700.css';
 import { AppProvider, Projects, Project, User, Calendar } from '@packages/features';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
-import { CustomAppLayout, CustomLink } from "@packages/components";
 import '@packages/design-system';
 
 const domNode = document.getElementById('app')!;
@@ -40,14 +39,14 @@ function App() {
                 <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
                     <Route path="users">
                         <Route index element={<></>} />
-                        <Route path=":id" element={<User PageLayout={CustomAppLayout} />} />
+                        <Route path=":id" element={<User />} />
                     </Route>
                     <Route path="projects">
-                        <Route index element={<Projects PageLayout={CustomAppLayout} Link={CustomLink} />} />
-                        <Route path=":id" element={<Project PageLayout={CustomAppLayout} Link={CustomLink} />} />
+                        <Route index element={<Projects />} />
+                        <Route path=":id" element={<Project />} />
                     </Route>
                     <Route path="calendar">
-                        <Route index element={<Calendar PageLayout={CustomAppLayout} />} />
+                        <Route index element={<Calendar />} />
                     </Route>
                 </Route>
             </Routes>

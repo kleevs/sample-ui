@@ -8,15 +8,24 @@ declare type LinkProps = {
     readonly href: string;
 }
 
-declare namespace React {
-    namespace JSX {
-        interface IntrinsicElements {
-            "k-input": React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
-        }
-    }
-}
-
-declare module "@design-system/components" {
+declare module "@packages/design-system" {
     type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
     const Input: React.FC<InputProps>;
+    type PanelProps = { children: React.ReactNode; title: React.ReactNode; }
+    const Panel: React.FC<PanelProps>;
+    type PageLayoutProps = {
+        children: React.ReactNode;
+        action?: React.ReactNode;
+    }
+    const PageLayout: React.FC<PageLayoutProps>;
+    type LinkProps = {
+        readonly children: React.ReactNode;
+        readonly href: string;
+    }
+    const Link: React.FC<LinkProps>;
+    type ButtonProps = {
+        readonly onClick: () => void;
+        readonly children: React.ReactNode;
+    }
+    const Button: React.FC<ButtonProps>;
 }

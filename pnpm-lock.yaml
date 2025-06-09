@@ -396,6 +396,9 @@ importers:
 
   packages/design-system:
     dependencies:
+      '@packages/features':
+        specifier: workspace:*
+        version: link:../features
       '@testing-library/dom':
         specifier: '*'
         version: 10.4.0
@@ -423,6 +426,9 @@ importers:
       react:
         specifier: 19.0.0
         version: 19.0.0
+      react-router-dom:
+        specifier: 7.4.0
+        version: 7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       rimraf:
         specifier: 5.0.7
         version: 5.0.7

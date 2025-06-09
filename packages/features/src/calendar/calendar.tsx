@@ -1,11 +1,8 @@
-import React, { FC, ReactNode, useState } from "react";
+import React, { useState } from "react";
 import dayjs from "dayjs";
+import { PageLayout } from '@packages/design-system';
 
-type CalendarProps = {
-  PageLayout: FC<PageLayoutProps>
-}
-
-export function Calendar({ PageLayout }: CalendarProps) {
+export function Calendar() {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [activities, setActivities] = useState<any>({});
   const [newTitle, setNewTitle] = useState("");
