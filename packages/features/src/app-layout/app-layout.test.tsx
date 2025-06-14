@@ -3,7 +3,12 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
 
-const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout Link={jest.fn(() => <></>)} title="" breadcrumb={[]} {...props} />
+const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout 
+    Link={jest.fn(({children, href}) => <a href={href}>{children}</a>)} 
+    title="" 
+    breadcrumb={[]} 
+    {...props} 
+/>
 
 describe('app-layout', () => {
     it('should render without error', () => {
@@ -13,6 +18,8 @@ describe('app-layout', () => {
     it('should render explorer', async () => {
         const { findByText } = render(<Component />);
 
-        expect(await findByText('Nouvel utilisateur')).toBeVisible()
+        expect(await findByText('Explorer')).toBeVisible()
+        expect(await findByText('Accueil')).toBeVisible()
+        expect(await findByText('Calendrier')).toBeVisible()
     });
 });

@@ -45,7 +45,7 @@ export function Project({ Link, PageLayout, Button, ...props }: ProjectProps) {
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {project.users.map(user => <Link href={`/users/${user.id}`}>
+        {project.users.map(user => <Link key={user.id} href={`/users/${user.id}`}>
           <div key={user.id} className="border rounded-xl p-4 shadow bg-white">
             <h3 className="text-xl font-semibold text-blue-700 mb-1">{user.name}</h3>
             <p><strong>Rôle :</strong> {user.role}</p>
