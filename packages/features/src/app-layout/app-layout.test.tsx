@@ -3,8 +3,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
 
-
-const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout title="" breadcrumb={[]} {...props} />
+const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout Link={jest.fn(() => <></>)} title="" breadcrumb={[]} {...props} />
 
 describe('app-layout', () => {
     it('should render without error', () => {

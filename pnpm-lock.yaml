@@ -243,6 +243,9 @@ importers:
       '@packages/features':
         specifier: 'workspace: *'
         version: link:../features
+      '@packages/services':
+        specifier: workspace:*
+        version: link:../services
       '@tailwindcss/postcss':
         specifier: '4'
         version: 4.0.9
@@ -438,6 +441,57 @@ importers:
       '@emotion/css':
         specifier: 11.13.5
         version: 11.13.5
+      '@tanstack/react-query':
+        specifier: 5.62.0
+        version: 5.62.0(react@19.0.0)
+      '@testing-library/dom':
+        specifier: '*'
+        version: 10.4.0
+      '@testing-library/jest-dom':
+        specifier: 6.1.4
+        version: 6.1.4(@jest/globals@29.7.0)(@types/jest@29.5.10)(jest@29.7.0(babel-plugin-macros@3.1.0))
+      '@testing-library/react':
+        specifier: 14.1.2
+        version: 14.1.2(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@types/app':
+        specifier: workspace:*
+        version: link:../@types
+      '@types/jest':
+        specifier: 29.5.10
+        version: 29.5.10
+      '@types/react':
+        specifier: '19'
+        version: 19.0.10
+      '@types/react-dom':
+        specifier: '19'
+        version: 19.0.4(@types/react@19.0.10)
+      dayjs:
+        specifier: '*'
+        version: 1.11.13
+      jest:
+        specifier: 29.7.0
+        version: 29.7.0(@types/node@20.10.0)(babel-plugin-macros@3.1.0)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      rimraf:
+        specifier: 5.0.7
+        version: 5.0.7
+      styled-components:
+        specifier: 6.1.13
+        version: 6.1.13(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      typescript:
+        specifier: '5'
+        version: 5.3.2
+
+  packages/services:
+    dependencies:
+      '@emotion/css':
+        specifier: 11.13.5
+        version: 11.13.5
+      '@packages/features':
+        specifier: workspace:*
+        version: link:../features
       '@tanstack/react-query':
         specifier: 5.62.0
         version: 5.62.0(react@19.0.0)

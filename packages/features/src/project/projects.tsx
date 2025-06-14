@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Link, PageLayout } from '@packages/components';
+
+type ProjectsProps =  DesignSystem.Props<'Link' | 'PageLayout'>;
 
 type Data = {
     id: number;
@@ -9,7 +10,7 @@ type Data = {
     period: string;
 };
 
-export function Projects() {
+export function Projects({ Link, PageLayout, ...props }: ProjectsProps) {
 	const [projects, setProjects] = useState<Data[]>([]);
 	const [search, setSearch] = useState("");
 	const [filtered, setFiltered] = useState<Data[]>([]);
@@ -59,7 +60,7 @@ export function Projects() {
           >⬇️ Exporter CSV</button>
 	</div>, [exportToCSV, setSearch]);
 
-  return <PageLayout action={action}>
+  return <PageLayout {...props} action={action}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.length > 0 ? (
             filtered.map((project) => <Link key={project.id} href={`/projects/${project.id}`}>

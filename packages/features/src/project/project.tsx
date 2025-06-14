@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
-import { Link, PageLayout, Button } from '@packages/components';
+
+type ProjectProps =  DesignSystem.Props<'Link' | 'PageLayout' | 'Button'>;
 
 type ProjectType = {
     readonly id: number;
@@ -20,7 +21,7 @@ const DefaultProject: ProjectType = {
     ]
 }
 
-export function Project() {
+export function Project({ Link, PageLayout, Button, ...props }: ProjectProps) {
     const [project, setProject] = useState<ProjectType>(DefaultProject);
 
     const handleInputChange = (e: any) => {
@@ -32,7 +33,7 @@ export function Project() {
         <Button onClick={() => {}}>{"💾 Sauvegarder"}</Button>
     </>, []);
 
-  return <PageLayout action={action}>
+  return <PageLayout {...props} action={action}>
     <div className="mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6">
         <h2 className="text-xl font-semibold mb-4">✏️ Informations du projet</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

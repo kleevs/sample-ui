@@ -9,8 +9,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { AppProvider, Projects, Project, User, Calendar } from '@packages/features';
+import { saveUser} from '@packages/services';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
+import { Input, Panel, PageLayout, Button, Link } from '@packages/components';
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);
@@ -38,14 +40,14 @@ function App() {
                 <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
                     <Route path="users">
                         <Route index element={<></>} />
-                        <Route path=":id" element={<User />} />
+                        <Route path=":id" element={<User Input={Input} PageLayout={PageLayout} Panel={Panel} Button={Button} saveUser={saveUser} />} />
                     </Route>
                     <Route path="projects">
-                        <Route index element={<Projects />} />
-                        <Route path=":id" element={<Project />} />
+                        <Route index element={<Projects Link={Link} PageLayout={PageLayout} />} />
+                        <Route path=":id" element={<Project Link={Link} PageLayout={PageLayout} Button={Button} />} />
                     </Route>
                     <Route path="calendar">
-                        <Route index element={<Calendar />} />
+                        <Route index element={<Calendar PageLayout={PageLayout} />} />
                     </Route>
                 </Route>
             </Routes>

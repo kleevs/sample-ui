@@ -1,7 +1,10 @@
 import React, { useState, useMemo } from "react";
-import { Input, Panel, PageLayout, Button } from '@packages/components';
 
-type UserType = {
+type UserProps =  DesignSystem.Props<'Input' | 'Panel' | 'PageLayout' | 'Button'> & {
+    saveUser: (user: UserType) => Promise<void>;
+}
+
+export type UserType = {
     email: string;
     lastName: string;
     firstName: string;
@@ -13,7 +16,7 @@ type UserType = {
 
 const DefaultUser = { email: 'claire.dubois@company.fr', lastName: "Dubois", firstName: 'Claire', role: "Guide conférencière", languages: "Français, Anglais", available: true, projects: ["Appartements Royaux"] };
 
-export function User() {
+export function User({ Input, Panel, PageLayout, Button, saveUser, ...props }: UserProps) {
     const [user, setUser] = useState<UserType>(DefaultUser);
 
     const handleInputChange = (e: any) => {
@@ -23,10 +26,10 @@ export function User() {
     };
 
     const action = useMemo(() => <>
-        <Button onClick={() => {}} >{"💾 Sauvegarder"}</Button>
+        <Button onClick={() => saveUser(user)} >{"💾 Sauvegarder"}</Button>
     </>, []);
 
-    return <PageLayout action={action}>
+    return <PageLayout {...props} action={action}>
         <Panel title="✏️ Informations sur l'utilisateur">
             <Input name="firstName" value={user.firstName} onChange={handleInputChange} placeholder="Nom" />
             <Input name="lastName" value={user.lastName} onChange={handleInputChange} placeholder="Prénom" />

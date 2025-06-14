@@ -1,5 +1,5 @@
 import React from "react";
 import { AppLayout } from '@packages/features';
-import type { PageLayout as PageLayoutType } from '@packages/components';
+import { Link } from "./link";
 
-export const PageLayout: typeof PageLayoutType = (props) => <AppLayout {...props} />
+export const PageLayout: DesignSystem.Components['PageLayout'] = (props) => <AppLayout {...props} Link={Link} />
