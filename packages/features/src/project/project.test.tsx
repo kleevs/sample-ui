@@ -4,6 +4,7 @@ import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
 
 const Component = (props: Partial<ComponentProps<typeof Project>>) => <Project 
+    Input={jest.fn((props) => <input {...props} />)} 
     Link={jest.fn(() => <span />)} 
     PageLayout={jest.fn(({children}) => <div children={children} />)} 
     Button={jest.fn(() => <div />)} 

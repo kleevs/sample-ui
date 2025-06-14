@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 
-type ProjectProps =  DesignSystem.Props<'Link' | 'PageLayout' | 'Button'>;
+type ProjectProps =  DesignSystem.Props<'Link' | 'PageLayout' | 'Button' | 'Input'>;
 
 type ProjectType = {
     readonly id: number;
@@ -21,7 +21,7 @@ const DefaultProject: ProjectType = {
     ]
 }
 
-export function Project({ Link, PageLayout, Button, ...props }: ProjectProps) {
+export function Project({ Input, Link, PageLayout, Button, ...props }: ProjectProps) {
     const [project, setProject] = useState<ProjectType>(DefaultProject);
 
     const handleInputChange = (e: any) => {
@@ -37,10 +37,10 @@ export function Project({ Link, PageLayout, Button, ...props }: ProjectProps) {
     <div className="mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6">
         <h2 className="text-xl font-semibold mb-4">✏️ Informations du projet</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input name="title" value={project.title} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Titre du projet" />
-        <input name="type" value={project.type} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Type d'activité" />
-        <input name="audience" value={project.audience} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Public cible" />
-        <input name="period" value={project.period} onChange={handleInputChange} className="border border-gray-300 dark:border-gray-600 p-2 rounded shadow-sm bg-white dark:bg-gray-700 dark:text-white" placeholder="Période" />
+        <Input name="title" value={project.title} onChange={handleInputChange} placeholder="Titre du projet" />
+        <Input name="type" value={project.type} onChange={handleInputChange} placeholder="Type d'activité" />
+        <Input name="audience" value={project.audience} onChange={handleInputChange} placeholder="Public cible" />
+        <Input name="period" value={project.period} onChange={handleInputChange} placeholder="Période" />
         </div>
     </div>
 

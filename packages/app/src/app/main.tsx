@@ -44,7 +44,7 @@ function App() {
                     </Route>
                     <Route path="projects">
                         <Route index element={<Projects Link={Link} PageLayout={PageLayout} />} />
-                        <Route path=":id" element={<Project Link={Link} PageLayout={PageLayout} Button={Button} />} />
+                        <Route path=":id" element={<Project Input={Input} Link={Link} PageLayout={PageLayout} Button={Button} />} />
                     </Route>
                     <Route path="calendar">
                         <Route index element={<Calendar PageLayout={PageLayout} />} />
