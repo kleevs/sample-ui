@@ -1,21 +1,14 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components';
-
-const Breadcrumbs = styled.div`
-    display: flex;
-    gap: 8px;
-    padding: 12px;
-`
 
 type BreadcrumbProps = DesignSystem.Props<'Link'> & {
     readonly links: { label: string; href: string; }[];
 }
 
 export function Breadcrumb({ Link, links, ...props }: BreadcrumbProps) {
-    return <Breadcrumbs {...props} aria-label="breadcrumb">
+    return <div {...props} aria-label="breadcrumb" className='flex p-[12px] gap-[8px]'>
         {links.map((l,i) => <Fragment key={i}>
             <Link href={l.href}>{l.label}</Link>
             {(i < links.length - 1) && <span>{">"}</span>}
         </Fragment>)}
-    </Breadcrumbs>
+    </div>
 }

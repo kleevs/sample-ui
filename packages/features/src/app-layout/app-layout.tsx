@@ -10,25 +10,6 @@ type AppLayoutProps = DesignSystem.Props<'Link'> & {
     readonly action?: ReactNode;
 }
 
-const Body = styled.div`
-    display: flex;
-    gap: 12px;
-    padding: 12px;
-`
-
-const Container = styled.div`
-    min-height: 100vh;
-`
-
-const PageHeader = styled.div`
-    padding: 1rem;
-`
-
-const H1 = styled.h1`
-    font-size: xx-large;
-`
-
-
 const H2 = styled.h1`
     font-size: xx-large;
     padding: 0.5rem;
@@ -36,12 +17,6 @@ const H2 = styled.h1`
 
 const HR = styled.hr`
     box-shadow: 0 0 5px grey;
-`
-
-const Explorer = styled.div`
-    flex: 1;
-    gap: 8px;
-    box-shadow: 0 0 2px grey;
 `
 
 const ExplorerContent = styled.div`
@@ -61,24 +36,24 @@ const Content = styled.div`
 `
 
 export function AppLayout({ Link, breadcrumb = [], children = <></>, title = '', action, ...props }: AppLayoutProps) {
-    return <Container {...props}>
+    return <div {...props} className='min-h-screen'>
         <Navbar action={action} />
         <Breadcrumb Link={Link} links={breadcrumb} />     
-        <PageHeader>
-            <H1>{title}</H1>
-        </PageHeader>
-        <Body>
-            <Explorer className='mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6'>
+        <div className='p-[1rem]'>
+            <h1 className='text-[xx-large]'>{title}</h1>
+        </div>
+        <div className='flex gap-[12px] padding-[12px]'>
+            <div className='flex-1 gap-[8px] mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6 shadow-[0_0_2px_grey]'>
                 <H2 className='text-xl font-semibold mb-4'>Explorer</H2>
                 <HR/>
                 <ExplorerContent>
                     <Link  data-testid='home' href='/projects'>Accueil</Link>
                     <Link  data-testid='calendar' href='/calendar'>Calendrier</Link>
                 </ExplorerContent>
-            </Explorer>
+            </div>
             <Content>
                 {children}
             </Content>
-        </Body>
-    </Container>
+        </div>
+    </div>
 }
