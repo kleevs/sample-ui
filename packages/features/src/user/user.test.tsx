@@ -2,12 +2,13 @@ import { User } from './user';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
+import { mocks } from '@dev/test-tool';
 
 const Component = (props: Partial<ComponentProps<typeof User>>) => <User 
-    Input={jest.fn(() => <div />)} 
-    PageLayout={jest.fn(({children}) => <div children={children} />)} 
-    Panel={jest.fn(({title, children}) => <div><h1>{title}</h1>{children}</div>)} 
-    Button={jest.fn(() => <div />)} 
+    Input={mocks.Input()} 
+    PageLayout={mocks.PageLayout()} 
+    Panel={mocks.Panel()} 
+    Button={mocks.Button()} 
     saveUser={jest.fn()}  
     {...props} 
 />

@@ -10,6 +10,7 @@
         "build": "build-tool"
     },
     "dependencies": {
+        "@types/app": "workspace:*",
         "typescript": "*",
         "jest": "*",
         "@types/jest": "*",

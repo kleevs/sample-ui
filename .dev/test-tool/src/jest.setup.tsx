@@ -7,6 +7,7 @@ Object.assign(global, { TextDecoder, TextEncoder });
 
 const consoleError = console.error;
 const SUPPRESSED_WARNINGS = [
+  '`ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.',
   'Warning: %s: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.%s',
   'Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.',
   'Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s',

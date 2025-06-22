@@ -2,15 +2,16 @@ import { Project } from './project';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
+import { mocks } from '@dev/test-tool';
 
 const Component = (props: Partial<ComponentProps<typeof Project>>) => <Project 
-    Input={jest.fn((props) => <input {...props} />)} 
-    Link={jest.fn(() => <span />)} 
-    PageLayout={jest.fn(({children}) => <div children={children} />)} 
-    Button={jest.fn(() => <div />)} 
-    Panel={jest.fn(({children}) => <div children={children} />)} 
-    Grid={jest.fn(({children}) => <div children={children} />)} 
-    Card={jest.fn(({children}) => <div children={children} />)} 
+    Input={mocks.Input()}
+    Link={mocks.Link()}
+    PageLayout={mocks.PageLayout()}
+    Button={mocks.Button()}
+    Panel={mocks.Panel()}
+    Grid={mocks.Grid()}
+    Card={mocks.Card()}
     {...props}
 />
 

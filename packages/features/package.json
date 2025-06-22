@@ -14,6 +14,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@dev/test-tool": "workspace:*",
         "@types/app": "workspace:*",
         "@types/react": "*",
         "@tanstack/react-query": "*",

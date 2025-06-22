@@ -153,6 +153,9 @@ importers:
       '@testing-library/user-event':
         specifier: 14.5.1
         version: 14.5.1(@testing-library/dom@10.4.0)
+      '@types/app':
+        specifier: workspace:*
+        version: link:../../packages/@types
       '@types/jest':
         specifier: 29.5.10
         version: 29.5.10
@@ -438,6 +441,9 @@ importers:
 
   packages/features:
     dependencies:
+      '@dev/test-tool':
+        specifier: workspace:*
+        version: link:../../.dev/test-tool
       '@emotion/css':
         specifier: 11.13.5
         version: 11.13.5

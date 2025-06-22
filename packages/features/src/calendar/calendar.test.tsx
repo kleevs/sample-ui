@@ -2,9 +2,10 @@ import { Calendar } from './calendar';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React, { ComponentProps } from 'react';
+import { mocks } from '@dev/test-tool';
 
 const Component = (props: Partial<ComponentProps<typeof Calendar>>) => <Calendar 
-    PageLayout={jest.fn(({children}) => <div children={children} />)} 
+    PageLayout={mocks.PageLayout()} 
     {...props} 
 />
 
