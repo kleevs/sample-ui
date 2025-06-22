@@ -15,11 +15,21 @@ declare namespace DesignSystem {
         readonly children: React.ReactNode;
     }
 
+    type CardProps = React.PropsWithChildren<{
+        title: ReactNode;
+        onUpdate?: () => void;
+        onDelete?: () => void;
+        href?: string;
+    }>
+
     type Components = {
         Input: React.FC<InputProps>;
         Panel: React.FC<PanelProps>;
         PageLayout: React.FC<PageLayoutProps>;
         Link: React.FC<LinkProps>;
         Button: React.FC<ButtonProps>;
+        Button: React.FC<ButtonProps>;
+        Card: React.FC<CardProps>;
+        Grid: React.FC<React.PropsWithChildren<{}>>;
     }
 } 

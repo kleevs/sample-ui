@@ -8,6 +8,9 @@ const Component = (props: Partial<ComponentProps<typeof Project>>) => <Project
     Link={jest.fn(() => <span />)} 
     PageLayout={jest.fn(({children}) => <div children={children} />)} 
     Button={jest.fn(() => <div />)} 
+    Panel={jest.fn(({children}) => <div children={children} />)} 
+    Grid={jest.fn(({children}) => <div children={children} />)} 
+    Card={jest.fn(({children}) => <div children={children} />)} 
     {...props}
 />
 
