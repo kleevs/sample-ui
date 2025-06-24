@@ -1,5 +1,3 @@
-import { UserType } from '@packages/features';
-
-export async function saveUser(user: UserType) {
+export async function saveUser(user: Features.UserType) {
     console.log(user);
 }
