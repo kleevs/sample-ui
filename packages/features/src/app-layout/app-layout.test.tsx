@@ -5,8 +5,6 @@ import React, { ComponentProps } from 'react';
 
 const Component = (props: Partial<ComponentProps<typeof AppLayout>>) => <AppLayout 
     Link={jest.fn(({children, href}) => <a href={href}>{children}</a>)} 
-    title="" 
-    breadcrumb={[]} 
     {...props} 
 />
 

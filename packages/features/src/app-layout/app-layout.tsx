@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import { Navbar } from './navbar';
 import { Breadcrumb } from './breadcrumb';
 
-type AppLayoutProps = DesignSystem.Props<'Link'> & {
-    readonly title?: string;
-    readonly breadcrumb?: ComponentProps<typeof Breadcrumb>['links']
-    readonly children?: ReactNode;
-    readonly action?: ReactNode;
-}
+type AppLayoutProps = DesignSystem.AsProps<'Link'> & DesignSystem.Props<'PageLayout'>;
 
 const H2 = styled.h1`
     font-size: xx-large;
@@ -35,12 +30,12 @@ const Content = styled.div`
     gap: 24px;
 `
 
-export function AppLayout({ Link, breadcrumb = [], children = <></>, title = '', action, ...props }: AppLayoutProps) {
+export function AppLayout({ Link, children = <></>, action, ...props }: AppLayoutProps) {
     return <div {...props} className='min-h-screen'>
         <Navbar action={action} />
-        <Breadcrumb Link={Link} links={breadcrumb} />     
+        <Breadcrumb Link={Link} links={[]} />     
         <div className='p-[1rem]'>
-            <h1 className='text-[xx-large]'>{title}</h1>
+            <h1 className='text-[xx-large]'>{''}</h1>
         </div>
         <div className='flex gap-[12px] padding-[12px]'>
             <div className='flex-1 gap-[8px] mb-10 bg-gray-50 dark:bg-gray-800 border shadow-lg rounded-xl p-6 shadow-[0_0_2px_grey]'>

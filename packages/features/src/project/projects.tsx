@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-type ProjectsProps =  DesignSystem.Props<'Link' | 'PageLayout' | 'Grid' | 'Card'>;
+type ProjectsProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Grid' | 'Card'>;
 
 type Data = {
     id: number;

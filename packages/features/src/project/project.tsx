@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 
-type ProjectProps =  DesignSystem.Props<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Card' | 'Grid'>;
+type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Card' | 'Grid'>;
 
 type ProjectType = {
     readonly id: number;

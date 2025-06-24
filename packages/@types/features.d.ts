@@ -1,5 +1,6 @@
 declare namespace Features {
-    type Props<T extends keyof Components> = Pick<Components, T>;
+    type AsProps<T extends keyof Components> = Pick<Components, T>;
+    type Props<T extends keyof Components> = React.ComponentProps<Pick<Components, T>>;
     type UserProps = {
         saveUser: (user: UserType) => Promise<void>;
     }

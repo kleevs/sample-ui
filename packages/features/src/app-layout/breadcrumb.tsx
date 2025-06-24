@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-type BreadcrumbProps = DesignSystem.Props<'Link'> & {
+type BreadcrumbProps = DesignSystem.AsProps<'Link'> & {
     readonly links: { label: string; href: string; }[];
 }
 

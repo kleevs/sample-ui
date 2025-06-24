@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 
-type CalendarProps =  DesignSystem.Props<'PageLayout'>;
+type CalendarProps =  DesignSystem.AsProps<'PageLayout'>;
 
 export function Calendar({ PageLayout, ...props}: CalendarProps) {
   const [selectedDate, setSelectedDate] = useState(dayjs());

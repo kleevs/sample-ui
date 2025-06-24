@@ -1,6 +1,6 @@
 import React, { useState, useMemo, ComponentProps } from "react";
 
-type UserProps =  DesignSystem.Props<'Input' | 'Panel' | 'PageLayout' | 'Button'> & ComponentProps<Features.Components['User']>;
+type UserProps =  DesignSystem.AsProps<'Input' | 'Panel' | 'PageLayout' | 'Button'> & Features.Props<'User'>;
 type UserType = Features.UserType;
 
 const DefaultUser = { email: 'claire.dubois@company.fr', lastName: "Dubois", firstName: 'Claire', role: "Guide conférencière", languages: "Français, Anglais", available: true, projects: ["Appartements Royaux"] };
