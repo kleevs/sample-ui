@@ -12,6 +12,11 @@ export async function getProjects(search: string): Promise<Features.ProjectType[
     );
 }
 
+export async function getProject(id: number) {
+    const projects = await getProjects('');
+    return projects.filter(p => p.id === id)[0];
+}
+
 export function exportProjectsToCSV() {
     const headers = ["Titre", "Type", "Public", "Période"];
     const rows = filtered.map(p => [p.title, p.type, p.audience, p.period]);

@@ -30,6 +30,6 @@ declare namespace Features {
 
     type Components = {
         readonly User: React.FC<UserProps>;
-        readonly UserCard: RecordingState.FC<UserCardProps>;
+        readonly UserCard: React.FC<UserCardProps>;
     }
 } 

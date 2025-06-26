@@ -16,6 +16,7 @@
     "dependencies": {
         "@types/app": "workspace:*",
         "@packages/features": "workspace:*",
+        "@packages/services": "workspace:*",
         "@packages/design-system":"workspace:*",
         "@types/react": "*",
         "@tanstack/react-query": "*",

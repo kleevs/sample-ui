@@ -1,6 +1,6 @@
 import React, { StrictMode } from "react";
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, useParams } from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './tailwind.css';
 import './style.css';
@@ -8,11 +8,10 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { AppProvider, Projects, Project, User, Calendar, Users } from '@packages/features';
-import { saveUser, getUsers, exportUsersToCSV, exportProjectsToCSV, getProjects } from '@packages/services';
+import { AppProvider } from '@packages/features';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
-import { Input, Panel, PageLayout, Button, Link , Card, Grid, UserCard } from '@packages/components';
+import { Calendar, Projects, Project,  User, Users } from '@packages/components';
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);
@@ -39,15 +38,15 @@ function App() {
             <Routes>
                 <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
                     <Route path="users">
-                        <Route index element={<Users Link={Link} PageLayout={PageLayout} Grid={Grid} UserCard={UserCard} getUsers={getUsers} exportUsersToCSV={exportUsersToCSV} />} />
-                        <Route path=":id" element={<User Input={Input} PageLayout={PageLayout} Panel={Panel} Button={Button} saveUser={saveUser} />} />
+                        <Route index element={<Users />} />
+                        <Route path=":id" element={<User />} />
                     </Route>
                     <Route path="projects">
-                        <Route index element={<Projects Link={Link} PageLayout={PageLayout} Card={Card} Grid={Grid} getProjects={getProjects} exportProjectsToCSV={exportProjectsToCSV} />} />
-                        <Route path=":id" element={<Project Input={Input} Link={Link} PageLayout={PageLayout} Button={Button} Panel={Panel} UserCard={UserCard} Grid={Grid} />} />
+                        <Route index element={<Projects />} />
+                        <Route path=":id" element={<Project id={useParams().id} />} />
                     </Route>
                     <Route path="calendar">
-                        <Route index element={<Calendar PageLayout={PageLayout} />} />
+                        <Route index element={<Calendar />} />
                     </Route>
                 </Route>
             </Routes>
