@@ -11,7 +11,7 @@ const Component = (props: Partial<ComponentProps<typeof Project>>) => <Project
     Button={mocks.Button()}
     Panel={mocks.Panel()}
     Grid={mocks.Grid()}
-    Card={mocks.Card()}
+    UserCard={jest.fn()}
     {...props}
 />
 

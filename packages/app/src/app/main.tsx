@@ -12,7 +12,7 @@ import { AppProvider, Projects, Project, User, Calendar } from '@packages/featur
 import { saveUser} from '@packages/services';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
-import { Input, Panel, PageLayout, Button, Link , Card, Grid } from '@packages/components';
+import { Input, Panel, PageLayout, Button, Link , Card, Grid, UserCard } from '@packages/components';
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);
@@ -44,7 +44,7 @@ function App() {
                     </Route>
                     <Route path="projects">
                         <Route index element={<Projects Link={Link} PageLayout={PageLayout} Card={Card} Grid={Grid} />} />
-                        <Route path=":id" element={<Project Input={Input} Link={Link} PageLayout={PageLayout} Button={Button} Panel={Panel} Card={Card} Grid={Grid} />} />
+                        <Route path=":id" element={<Project Input={Input} Link={Link} PageLayout={PageLayout} Button={Button} Panel={Panel} UserCard={UserCard} Grid={Grid} />} />
                     </Route>
                     <Route path="calendar">
                         <Route index element={<Calendar PageLayout={PageLayout} />} />

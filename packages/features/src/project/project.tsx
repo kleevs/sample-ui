@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from "react";
 
-type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Card' | 'Grid'>;
+type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Grid'> & Features.AsProps<'UserCard'>;
+
+type UserType = Features.UserType;
 
 type ProjectType = {
     readonly id: number;
@@ -8,7 +10,7 @@ type ProjectType = {
     readonly type: string;
     readonly audience: string;
     readonly period: string;
-    readonly users: any[];
+    readonly users: UserType[];
 };
 
 const DefaultProject: ProjectType = {
@@ -21,33 +23,19 @@ const DefaultProject: ProjectType = {
     ]
 }
 
-export function Project({ Input, Link, PageLayout, Button, Panel, Card, Grid, ...props }: ProjectProps) {
+export function Project({ Input, Link, PageLayout, Button, Panel, UserCard, Grid, ...props }: ProjectProps) {
     const [project, setProject] = useState<ProjectType>(DefaultProject);
 
-    const handleInputChange = (e: any) => {
-        const { name, value } = e.target;
-        setProject(prev => ({ ...prev, [name]: value }));
-    };
-
-    const action = useMemo(() => <>
-        <Button onClick={() => {}}>{"💾 Sauvegarder"}</Button>
-    </>, []);
-
-  return <PageLayout {...props} action={action}>
+  return <PageLayout {...props} action={<><Button onClick={console.log}>{"💾 Sauvegarder"}</Button></>}>
     <Panel title='✏️ Informations du projet'>
-      <Input name="title" value={project.title} onChange={handleInputChange} placeholder="Titre du projet" />
-      <Input name="type" value={project.type} onChange={handleInputChange} placeholder="Type d'activité" />
-      <Input name="audience" value={project.audience} onChange={handleInputChange} placeholder="Public cible" />
-      <Input name="period" value={project.period} onChange={handleInputChange} placeholder="Période" />
+      <Input name="title" value={project.title} onChange={(e) => setProject({...project, title: e.target.value})} placeholder="Titre du projet" />
+      <Input name="type" value={project.type} onChange={(e) => setProject({...project, type: e.target.value})} placeholder="Type d'activité" />
+      <Input name="audience" value={project.audience} onChange={(e) => setProject({...project, audience: e.target.value})} placeholder="Public cible" />
+      <Input name="period" value={project.period} onChange={(e) => setProject({...project, period: e.target.value})} placeholder="Période" />
     </Panel>
 
     <Grid>
-        {project.users.map(user => <Card key={user.id} title={user.name}  href={`/users/${user.id}`}>
-            <p><strong>Rôle :</strong> {user.role}</p>
-            <p><strong>Langues :</strong> {user.languages}</p>
-            <p><strong>Disponibilité :</strong> {user.available ? "✅ Oui" : "❌ Non"}</p>
-            <p><strong>Projets :</strong> {user.projects.join(", ")}</p>
-        </Card>)}
+        {project.users.map(user => <UserCard key={user.id} user={user}  />)}
     </Grid>
   </PageLayout>
 }
