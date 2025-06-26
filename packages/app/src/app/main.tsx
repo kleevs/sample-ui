@@ -8,8 +8,8 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { AppProvider, Projects, Project, User, Calendar } from '@packages/features';
-import { saveUser} from '@packages/services';
+import { AppProvider, Projects, Project, User, Calendar, Users } from '@packages/features';
+import { saveUser, getUsers, exportUsersToCSV, exportProjectsToCSV, getProjects } from '@packages/services';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
 import { Input, Panel, PageLayout, Button, Link , Card, Grid, UserCard } from '@packages/components';
@@ -39,11 +39,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
                     <Route path="users">
-                        <Route index element={<></>} />
+                        <Route index element={<Users Link={Link} PageLayout={PageLayout} Grid={Grid} UserCard={UserCard} getUsers={getUsers} exportUsersToCSV={exportUsersToCSV} />} />
                         <Route path=":id" element={<User Input={Input} PageLayout={PageLayout} Panel={Panel} Button={Button} saveUser={saveUser} />} />
                     </Route>
                     <Route path="projects">
-                        <Route index element={<Projects Link={Link} PageLayout={PageLayout} Card={Card} Grid={Grid} />} />
+                        <Route index element={<Projects Link={Link} PageLayout={PageLayout} Card={Card} Grid={Grid} getProjects={getProjects} exportProjectsToCSV={exportProjectsToCSV} />} />
                         <Route path=":id" element={<Project Input={Input} Link={Link} PageLayout={PageLayout} Button={Button} Panel={Panel} UserCard={UserCard} Grid={Grid} />} />
                     </Route>
                     <Route path="calendar">

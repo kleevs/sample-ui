@@ -1,16 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
+import { useQuery } from 'react-query';
 
-type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Grid'> & Features.AsProps<'UserCard'>;
-
-type UserType = Features.UserType;
-
-type ProjectType = {
-    readonly id: number;
-    readonly title: string;
-    readonly type: string;
-    readonly audience: string;
-    readonly period: string;
-    readonly users: UserType[];
+type ProjectType = Features.ProjectType;
+type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Grid'> & Features.AsProps<'UserCard'> & {
+  id: number;
+  getProject: (id: number) => Promise<ProjectType>;
 };
 
 const DefaultProject: ProjectType = {
@@ -23,8 +17,9 @@ const DefaultProject: ProjectType = {
     ]
 }
 
-export function Project({ Input, Link, PageLayout, Button, Panel, UserCard, Grid, ...props }: ProjectProps) {
-    const [project, setProject] = useState<ProjectType>(DefaultProject);
+export function Project({ Input, Link, PageLayout, Button, Panel, UserCard, Grid, id, getProject, ...props }: ProjectProps) {
+  const { data: init = DefaultProject} = useQuery({ queryKey: ['project', id], queryFn: () => getProject(id) });
+  const [project, setProject] = useStateAsync<ProjectType>(init);
 
   return <PageLayout {...props} action={<><Button onClick={console.log}>{"💾 Sauvegarder"}</Button></>}>
     <Panel title='✏️ Informations du projet'>

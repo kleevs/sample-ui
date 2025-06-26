@@ -1,25 +1,35 @@
 declare namespace Features {
     export type UserType = {
-        email: string;
-        lastName: string;
-        firstName: string;
-        role: string;
-        languages: string;
-        available: boolean;
-        projects: string[];
+        readonly email: string;
+        readonly lastName: string;
+        readonly firstName: string;
+        readonly role: string;
+        readonly languages: string;
+        readonly available: boolean;
+        readonly projects: string[];
+    };
+
+    export type ProjectType = {
+        readonly id: number;
+        readonly title: string;
+        readonly type: string;
+        readonly audience: string;
+        readonly period: string;
+        readonly users: UserType[];
     };
 
     type AsProps<T extends keyof Components> = Pick<Components, T>;
     type Props<T extends keyof Components> = React.ComponentProps<Pick<Components, T>>;
+
     type UserProps = {
-        saveUser: (user: UserType) => Promise<void>;
+        readonly saveUser: (user: UserType) => Promise<void>;
     }
     type UserCardProps = {
-        user: UserType;
+        readonly user: UserType;
     }
 
     type Components = {
-        User: React.FC<UserProps>;
-        UserCard: RecordingState.FC<UserCardProps>;
+        readonly User: React.FC<UserProps>;
+        readonly UserCard: RecordingState.FC<UserCardProps>;
     }
 } 
