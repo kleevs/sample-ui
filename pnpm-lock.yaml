@@ -357,6 +357,9 @@ importers:
       '@packages/features':
         specifier: workspace:*
         version: link:../features
+      '@packages/services':
+        specifier: workspace:*
+        version: link:../services
       '@tanstack/react-query':
         specifier: 5.62.0
         version: 5.62.0(react@19.0.0)

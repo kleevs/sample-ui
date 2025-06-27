@@ -9,6 +9,8 @@ const Component = (props: Partial<ComponentProps<typeof Projects>>) => <Projects
     PageLayout={mocks.PageLayout()} 
     Card={mocks.Card()}
     Grid={mocks.Grid()}
+    getProjects={jest.fn()}
+    exportProjectsToCSV={jest.fn()}
     {...props}
 />
 

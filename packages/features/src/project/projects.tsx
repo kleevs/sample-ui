@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 type ProjectType = Features.ProjectType;
 type ProjectsProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Grid' | 'Card'> & {

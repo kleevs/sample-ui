@@ -1,6 +1,6 @@
 declare namespace DesignSystem {
     type AsProps<T extends keyof Components> = Pick<Components, T>;
-    type Props<T extends keyof Components> = React.ComponentProps<Pick<Components, T>>;
+    type Props<T extends keyof Components> = React.ComponentProps<Components[T]>;
     type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
     type PanelProps = { children: React.ReactNode; title: React.ReactNode; }
     type PageLayoutProps = {

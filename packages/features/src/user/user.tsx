@@ -1,4 +1,4 @@
-import React, { useState, useMemo, ComponentProps } from "react";
+import React, { useState } from "react";
 
 type UserProps =  DesignSystem.AsProps<'Input' | 'Panel' | 'PageLayout' | 'Button'> & Features.Props<'User'>;
 type UserType = Features.UserType;

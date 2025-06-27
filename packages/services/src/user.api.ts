@@ -2,15 +2,16 @@ export async function saveUser(user: Features.UserType) {
     console.log(user);
 }
 
-export async function getUsers(search: string) {
-    const data = [
-      { id: 1, name: "Claire Dubois", role: "Guide conférencière", languages: "Français, Anglais", available: true, projects: ["Appartements Royaux"] },
-      { id: 2, name: "Yann Morel", role: "Animateur ateliers", languages: "Français", available: false, projects: [] },
-      { id: 3, name: "Sofia Marques", role: "Conférencière bilingue", languages: "Français, Espagnol", available: true, projects: ["Ateliers scolaires"] },
+export async function getUsers(search: string): Promise<Features.UserType[]> {
+    const data: Features.UserType[] = [
+      { email: '1', firstName: "Claire", lastName: "Dubois", role: "Guide conférencière", languages: "Français, Anglais", available: true, projects: ["Appartements Royaux"] },
+      { email: '2', firstName: "Yann", lastName: "Morel", role: "Animateur ateliers", languages: "Français", available: false, projects: [] },
+      { email: '3', firstName: "Sofia", lastName: "Marques", role: "Conférencière bilingue", languages: "Français, Espagnol", available: true, projects: ["Ateliers scolaires"] },
     ];
 
     return data.filter(p =>
-        p.name.toLowerCase().includes(search.toLowerCase()) ||
+        p.firstName.toLowerCase().includes(search.toLowerCase()) ||
+        p.lastName.toLowerCase().includes(search.toLowerCase()) ||
         p.role.toLowerCase().includes(search.toLowerCase())
     );
 }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { useQuery } from 'react-query';
+import React, { useState, useMemo } from "react";
+import { useQuery } from '@tanstack/react-query';
 
 type UserType = Features.UserType;
-type UsersProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Grid' | 'UserCard'> & {
+type UsersProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Grid'> & Features.AsProps<'UserCard'> & {
 	getUsers: (search: string) => Promise<UserType[]>;
 	exportUsersToCSV: () => void;
 }
@@ -27,7 +27,7 @@ export function Users({ Link, PageLayout, Grid, UserCard, exportUsersToCSV, getU
      return <PageLayout {...props} action={action}>
            <Grid>
              {users.length > 0 ? (
-               users.map((user) => <UserCard key={user.id} user={user} />)
+               users.map((user) => <UserCard key={user.email} user={user} />)
              ) : (
                <p className="col-span-full text-center text-gray-500 dark:text-gray-300">Aucun projet trouvé.</p>
              )}

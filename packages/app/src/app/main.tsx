@@ -43,7 +43,7 @@ function App() {
                     </Route>
                     <Route path="projects">
                         <Route index element={<Projects />} />
-                        <Route path=":id" element={<Project id={useParams().id} />} />
+                        <Route path=":id" element={<Project id={+(useParams().id || '0')} />} />
                     </Route>
                     <Route path="calendar">
                         <Route index element={<Calendar />} />

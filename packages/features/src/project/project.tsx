@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 type ProjectType = Features.ProjectType;
 type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Grid'> & Features.AsProps<'UserCard'> & {
@@ -36,7 +36,7 @@ export function Project({ Input, Link, PageLayout, Button, Panel, UserCard, Grid
     </Panel>
 
     <Grid>
-        {project.users.map(user => <UserCard key={user.id} user={user}  />)}
+        {project.users.map(user => <UserCard key={user.email} user={user}  />)}
     </Grid>
   </PageLayout>
 }

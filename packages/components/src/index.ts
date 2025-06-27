@@ -5,3 +5,4 @@ export * from './card';
 export * from './project';
 export * from './calendar';
 export * from './user';
+export { Card } from './card';
