@@ -1,13 +1,14 @@
 import React, { useState, useMemo } from "react";
 import { useQuery } from '@tanstack/react-query';
+import { Grid } from "@packages/design-system";
 
 type UserType = Features.UserType;
-type UsersProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Grid'> & Features.AsProps<'UserCard'> & {
+type UsersProps =  DesignSystem.AsProps<'Link'> & Features.AsProps<'UserCard' | 'AppLayout'> & {
 	getUsers: (search: string) => Promise<UserType[]>;
-	exportUsersToCSV: () => void;
+	exportUsersToCSV: (users: Features.UserType[]) => void;
 }
 
-export function Users({ Link, PageLayout, Grid, UserCard, exportUsersToCSV, getUsers, ...props }: UsersProps) {
+export function Users({ Link, AppLayout, UserCard, exportUsersToCSV, getUsers, ...props }: UsersProps) {
    const [search, setSearch] = useState("");
     const { data: users = []} = useQuery({ queryKey: ['users', search], queryFn: () => getUsers(search) });
    
@@ -19,12 +20,12 @@ export function Users({ Link, PageLayout, Grid, UserCard, exportUsersToCSV, getU
                onChange={(e) => setSearch(e.target.value)}
              />
              <button
-               onClick={exportUsersToCSV}
+               onClick={() => exportUsersToCSV(users)}
                className="bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition"
              >⬇️ Exporter CSV</button>
     </div>, [exportUsersToCSV, setSearch]);
    
-     return <PageLayout {...props} action={action}>
+     return <AppLayout {...props} action={action}>
            <Grid>
              {users.length > 0 ? (
                users.map((user) => <UserCard key={user.email} user={user} />)
@@ -32,5 +33,5 @@ export function Users({ Link, PageLayout, Grid, UserCard, exportUsersToCSV, getU
                <p className="col-span-full text-center text-gray-500 dark:text-gray-300">Aucun projet trouvé.</p>
              )}
         </Grid>
-    </PageLayout>
+    </AppLayout>
 }

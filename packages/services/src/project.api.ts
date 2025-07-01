@@ -17,9 +17,9 @@ export async function getProject(id: number) {
     return projects.filter(p => p.id === id)[0];
 }
 
-export function exportProjectsToCSV() {
+export function exportProjectsToCSV(projects: Features.ProjectType[]) {
     const headers = ["Titre", "Type", "Public", "Période"];
-    const rows = filtered.map(p => [p.title, p.type, p.audience, p.period]);
+    const rows = projects.map(p => [p.title, p.type, p.audience, p.period]);
     let csvContent = "data:text/csv;charset=utf-8," + [headers, ...rows].map(e => e.join(",")).join("\n");
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");

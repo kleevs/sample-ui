@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from '@tanstack/react-query';
+import { Button, Grid, Input, Panel } from "@packages/design-system";
 
 type ProjectType = Features.ProjectType;
-type ProjectProps =  DesignSystem.AsProps<'Link' | 'PageLayout' | 'Button' | 'Input' | 'Panel' | 'Grid'> & Features.AsProps<'UserCard'> & {
+type ProjectProps =  DesignSystem.AsProps<'Link'> & Features.AsProps<'AppLayout' | 'UserCard'> & {
   id: number;
   getProject: (id: number) => Promise<ProjectType>;
 };
@@ -23,11 +24,11 @@ function useStateAsync<T>(defaultValue: T) {
   return state;
 }
 
-export function Project({ Input, Link, PageLayout, Button, Panel, UserCard, Grid, id, getProject, ...props }: ProjectProps) {
+export function Project({ Link, AppLayout, UserCard, id, getProject, ...props }: ProjectProps) {
   const { data: init = DefaultProject} = useQuery({ queryKey: ['project', id], queryFn: () => getProject(id) });
   const [project, setProject] = useStateAsync<ProjectType>(init);
 
-  return <PageLayout {...props} action={<><Button onClick={console.log}>{"💾 Sauvegarder"}</Button></>}>
+  return <AppLayout {...props} action={<><Button onClick={console.log}>{"💾 Sauvegarder"}</Button></>}>
     <Panel title='✏️ Informations du projet'>
       <Input name="title" value={project.title} onChange={(e) => setProject({...project, title: e.target.value})} placeholder="Titre du projet" />
       <Input name="type" value={project.type} onChange={(e) => setProject({...project, type: e.target.value})} placeholder="Type d'activité" />
@@ -38,5 +39,5 @@ export function Project({ Input, Link, PageLayout, Button, Panel, UserCard, Grid
     <Grid>
         {project.users.map(user => <UserCard key={user.email} user={user}  />)}
     </Grid>
-  </PageLayout>
+  </AppLayout>
 }

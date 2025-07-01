@@ -17,9 +17,9 @@ export async function getUsers(search: string): Promise<Features.UserType[]> {
 }
 
 
-export function exportUsersToCSV() {
+export function exportUsersToCSV(users: Features.UserType[]) {
     const headers = ["Titre", "Type", "Public", "Période"];
-    const rows = filtered.map(p => [p.title, p.type, p.audience, p.period]);
+    const rows = users.map(p => [p.lastName, p.firstName, p.email, p.role]);
     let csvContent = "data:text/csv;charset=utf-8," + [headers, ...rows].map(e => e.join(",")).join("\n");
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");

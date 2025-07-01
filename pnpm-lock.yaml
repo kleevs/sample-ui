@@ -435,6 +435,9 @@ importers:
       react:
         specifier: 19.0.0
         version: 19.0.0
+      react-router-dom:
+        specifier: 7.4.0
+        version: 7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       rimraf:
         specifier: 5.0.7
         version: 5.0.7
@@ -450,6 +453,9 @@ importers:
       '@emotion/css':
         specifier: 11.13.5
         version: 11.13.5
+      '@packages/design-system':
+        specifier: workspace:*
+        version: link:../design-system
       '@tanstack/react-query':
         specifier: 5.62.0
         version: 5.62.0(react@19.0.0)

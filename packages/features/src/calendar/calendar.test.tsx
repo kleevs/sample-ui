@@ -5,7 +5,7 @@ import React, { ComponentProps } from 'react';
 import { mocks } from '@dev/test-tool';
 
 const Component = (props: Partial<ComponentProps<typeof Calendar>>) => <Calendar 
-    PageLayout={mocks.PageLayout()} 
+    AppLayout={mocks.PageLayout()} 
     {...props} 
 />
 

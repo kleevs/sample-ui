@@ -24,6 +24,7 @@
         "jest": "*",
         "@types/jest": "*",
         "@testing-library/dom": "*",
-        "@testing-library/jest-dom": "*"
+        "@testing-library/jest-dom": "*",
+        "react-router-dom": "*"
     }
 }

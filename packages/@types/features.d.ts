@@ -18,7 +18,7 @@ declare namespace Features {
         readonly users: UserType[];
     };
 
-    type AsProps<T extends keyof Components> = Pick<Components, T>;
+    type AsProps<K extends keyof Components> = { [P in K]: Components[P]; };
     type Props<T extends keyof Components> = React.ComponentProps<Components[T]>;
 
     type UserProps = {
@@ -27,8 +27,13 @@ declare namespace Features {
     type UserCardProps = {
         readonly user: UserType;
     }
+    type AppLayoutProps = {
+        children: React.ReactNode;
+        action?: React.ReactNode;
+    }
 
     type Components = {
+        AppLayout: React.FC<PageLayoutProps>;
         readonly User: React.FC<UserProps>;
         readonly UserCard: React.FC<UserCardProps>;
     }

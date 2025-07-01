@@ -1,13 +1,14 @@
 import React from "react"
+import { Link as ReactDomLink } from './link';
 
-type CardProps = DesignSystem.AsProps['Link'] & DesignSystem.Props<'Card'>;
+type CardProps = Partial<DesignSystem.AsProps<'Link'>> & DesignSystem.Props<'Card'>;
 
-function FakeLink(props: DesignSystem.Props['Link']) {
+function FakeLink(props: DesignSystem.Props<'Link'>) {
     return <>{props.children}</>
 }
 
 export function Card({ Link, href, title, onDelete, onUpdate, children, ...props }: CardProps) {
-    const Container = href ? Link : FakeLink;
+    const Container = href ? Link ?? ReactDomLink : FakeLink;
 
     return <Container href={href || ''}>
         <div className="border rounded-xl p-4 shadow bg-white" {...props}>

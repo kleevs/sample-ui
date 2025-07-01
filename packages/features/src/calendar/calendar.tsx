@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 
-type CalendarProps =  DesignSystem.AsProps<'PageLayout'>;
+type CalendarProps =  Features.AsProps<'AppLayout'>;
 
-export function Calendar({ PageLayout, ...props}: CalendarProps) {
+export function Calendar({ AppLayout, ...props}: CalendarProps) {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [activities, setActivities] = useState<any>({});
   const [newTitle, setNewTitle] = useState("");
@@ -28,7 +28,7 @@ export function Calendar({ PageLayout, ...props}: CalendarProps) {
     }
   };
 
-  return <PageLayout {...props}>
+  return <AppLayout {...props}>
     <div className="p-6 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">📅 Calendrier des activités</h1>
 
@@ -78,5 +78,5 @@ export function Calendar({ PageLayout, ...props}: CalendarProps) {
         })}
       </div>
     </div>
-  </PageLayout>
+  </AppLayout>
 }

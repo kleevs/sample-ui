@@ -1,9 +1,9 @@
-import React, { ReactNode, ComponentProps } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import { Navbar } from './navbar';
 import { Breadcrumb } from './breadcrumb';
 
-type AppLayoutProps = DesignSystem.AsProps<'Link'> & DesignSystem.Props<'PageLayout'>;
+type AppLayoutProps = DesignSystem.AsProps<'Link'> & Features.Props<'AppLayout'>;
 
 const H2 = styled.h1`
     font-size: xx-large;
