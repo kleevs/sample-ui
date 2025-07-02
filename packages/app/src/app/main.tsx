@@ -11,7 +11,7 @@ import '@fontsource/roboto/700.css';
 import { AppProvider } from '@packages/features';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
-import { Calendar, Projects, Project,  User, Users } from '@packages/components';
+import { Calendar, Projects, Project,  User, Users } from '../components';
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);

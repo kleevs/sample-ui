@@ -42,8 +42,8 @@ export function AppLayout({ Link, children = <></>, action, ...props }: AppLayou
                 <H2 className='text-xl font-semibold mb-4'>Explorer</H2>
                 <HR/>
                 <ExplorerContent>
-                    <Link  data-testid='home' href='/projects'>Accueil</Link>
-                    <Link  data-testid='calendar' href='/calendar'>Calendrier</Link>
+                    <Link data-testid='home' href='/projects'>Accueil</Link>
+                    <Link data-testid='calendar' href='/calendar'>Calendrier</Link>
                 </ExplorerContent>
             </div>
             <Content>

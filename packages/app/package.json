@@ -16,7 +16,6 @@
     "devDependencies": {
         "@types/app": "workspace: *",
         "@packages/features": "workspace: *",
-        "@packages/components": "workspace: *",
         "@packages/design-system": "workspace:*",
         "@packages/services": "workspace:*",
         "@types/react": "*",

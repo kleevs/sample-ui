@@ -237,9 +237,6 @@ importers:
       '@mui/x-data-grid':
         specifier: 7.20.0
         version: 7.20.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@mui/material@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@mui/system@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@packages/components':
-        specifier: 'workspace: *'
-        version: link:../components
       '@packages/design-system':
         specifier: workspace:*
         version: link:../design-system
@@ -324,87 +321,6 @@ importers:
       webpack-dev-server:
         specifier: 4.15.1
         version: 4.15.1(webpack-cli@5.1.4)(webpack@5.89.0)
-
-  packages/components:
-    dependencies:
-      '@emotion/css':
-        specifier: 11.13.5
-        version: 11.13.5
-      '@emotion/react':
-        specifier: 11.11.0
-        version: 11.11.0(@types/react@19.0.10)(react@19.0.0)
-      '@fontsource/roboto':
-        specifier: 5.2.5
-        version: 5.2.5
-      '@mui/icons-material':
-        specifier: 7.0.1
-        version: 7.0.1(@mui/material@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)
-      '@mui/material':
-        specifier: 7.0.1
-        version: 7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@mui/styled-engine-sc':
-        specifier: 7.0.1
-        version: 7.0.1(styled-components@6.1.13(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
-      '@mui/system':
-        specifier: 7.0.1
-        version: 7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)
-      '@mui/x-data-grid':
-        specifier: 7.20.0
-        version: 7.20.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@mui/material@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@mui/system@7.0.1(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.11.0(@emotion/react@11.11.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@packages/design-system':
-        specifier: workspace:*
-        version: link:../design-system
-      '@packages/features':
-        specifier: workspace:*
-        version: link:../features
-      '@packages/services':
-        specifier: workspace:*
-        version: link:../services
-      '@tanstack/react-query':
-        specifier: 5.62.0
-        version: 5.62.0(react@19.0.0)
-      '@testing-library/dom':
-        specifier: '*'
-        version: 10.4.0
-      '@testing-library/jest-dom':
-        specifier: 6.1.4
-        version: 6.1.4(@jest/globals@29.7.0)(@types/jest@29.5.10)(jest@29.7.0(babel-plugin-macros@3.1.0))
-      '@testing-library/react':
-        specifier: 14.1.2
-        version: 14.1.2(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@types/app':
-        specifier: workspace:*
-        version: link:../@types
-      '@types/jest':
-        specifier: 29.5.10
-        version: 29.5.10
-      '@types/react':
-        specifier: '19'
-        version: 19.0.10
-      '@types/react-dom':
-        specifier: '19'
-        version: 19.0.4(@types/react@19.0.10)
-      dayjs:
-        specifier: '*'
-        version: 1.11.13
-      jest:
-        specifier: 29.7.0
-        version: 29.7.0(@types/node@20.10.0)(babel-plugin-macros@3.1.0)
-      react:
-        specifier: 19.0.0
-        version: 19.0.0
-      react-router-dom:
-        specifier: 7.4.0
-        version: 7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      rimraf:
-        specifier: 5.0.7
-        version: 5.0.7
-      styled-components:
-        specifier: 6.1.13
-        version: 6.1.13(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      typescript:
-        specifier: '5'
-        version: 5.3.2
 
   packages/design-system:
     dependencies:
