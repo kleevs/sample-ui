@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from '@tanstack/react-query';
-import { Button, Grid, Input, Panel } from "@packages/design-system";
+import { Button, Grid, Input, Panel, Link } from "@packages/design-system";
 
 type ProjectType = Features.ProjectType;
-type ProjectProps =  DesignSystem.AsProps<'Link'> & Features.AsProps<'AppLayout' | 'UserCard'> & {
+type ProjectProps =  Features.AsProps<'AppLayout' | 'UserCard'> & {
   id: number;
   getProject: (id: number) => Promise<ProjectType>;
 };
@@ -24,7 +24,7 @@ function useStateAsync<T>(defaultValue: T) {
   return state;
 }
 
-export function Project({ Link, AppLayout, UserCard, id, getProject, ...props }: ProjectProps) {
+export function Project({ AppLayout, UserCard, id, getProject, ...props }: ProjectProps) {
   const { data: init = DefaultProject} = useQuery({ queryKey: ['project', id], queryFn: () => getProject(id) });
   const [project, setProject] = useStateAsync<ProjectType>(init);
 

@@ -1,13 +1,25 @@
 import { Button, Input, Panel } from "@packages/design-system";
-import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useEffect, useState } from "react";
 
 type UserProps =  Features.AsProps<'AppLayout'> & Features.Props<'User'>;
 type UserType = Features.UserType;
 
+function useStateAsync<T>(defaultValue: T) {
+  const state = useState<T>(defaultValue);
+
+  useEffect(() => {
+    state[1](defaultValue);
+  }, [defaultValue]);
+
+  return state;
+}
+
 const DefaultUser = { email: 'claire.dubois@company.fr', lastName: "Dubois", firstName: 'Claire', role: "Guide conférencière", languages: "Français, Anglais", available: true, projects: ["Appartements Royaux"] };
 
-export function User({ AppLayout, saveUser, ...props }: UserProps) {
-    const [user, setUser] = useState<UserType>(DefaultUser);
+export function User({ AppLayout, email, saveUser, getUser, ...props }: UserProps) {
+    const { data: init = DefaultUser} = useQuery({ queryKey: ['user', email], queryFn: () => getUser(email) });
+    const [user, setUser] = useStateAsync<UserType>(init);
 
     return <AppLayout {...props} action={<><Button onClick={() => saveUser(user)} >💾 Sauvegarder</Button></>}>
         <Panel title="✏️ Informations sur l'utilisateur">

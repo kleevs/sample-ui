@@ -5,7 +5,6 @@ import React, { ComponentProps } from 'react';
 import { mocks } from '@dev/test-tool';
 
 const Component = (props: Partial<ComponentProps<typeof Project>>) => <Project 
-    Link={mocks.Link()}
     AppLayout={mocks.PageLayout()}
     UserCard={jest.fn()}
     getProject={jest.fn()}

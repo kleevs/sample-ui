@@ -16,6 +16,10 @@ export async function getUsers(search: string): Promise<Features.UserType[]> {
     );
 }
 
+export async function getUser(id: string) {
+    const projects = await getUsers('');
+    return projects.filter(p => p.email === id)[0];
+}
 
 export function exportUsersToCSV(users: Features.UserType[]) {
     const headers = ["Titre", "Type", "Public", "Période"];

@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 import { Navbar } from './navbar';
 import { Breadcrumb } from './breadcrumb';
+import { Link } from '@packages/design-system';
 
-type AppLayoutProps = DesignSystem.AsProps<'Link'> & Features.Props<'AppLayout'>;
+type AppLayoutProps = Features.Props<'AppLayout'>;
 
 const H2 = styled.h1`
     font-size: xx-large;
@@ -30,10 +31,10 @@ const Content = styled.div`
     gap: 24px;
 `
 
-export function AppLayout({ Link, children = <></>, action, ...props }: AppLayoutProps) {
+export function AppLayout({ children = <></>, action, ...props }: AppLayoutProps) {
     return <div {...props} className='min-h-screen'>
         <Navbar action={action} />
-        <Breadcrumb Link={Link} links={[]} />     
+        <Breadcrumb links={[]} />     
         <div className='p-[1rem]'>
             <h1 className='text-[xx-large]'>{''}</h1>
         </div>

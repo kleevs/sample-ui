@@ -22,7 +22,9 @@ declare namespace Features {
     type Props<T extends keyof Components> = React.ComponentProps<Components[T]>;
 
     type UserProps = {
+        readonly email: string;
         readonly saveUser: (user: UserType) => Promise<void>;
+        readonly getUser: (email: string) => Promise<UserType>;
     }
     type UserCardProps = {
         readonly user: UserType;

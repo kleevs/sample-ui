@@ -6,7 +6,9 @@ import { mocks } from '@dev/test-tool';
 
 const Component = (props: Partial<ComponentProps<typeof User>>) => <User 
     AppLayout={mocks.PageLayout()} 
+    email=''
     saveUser={jest.fn()}  
+    getUser={jest.fn()}
     {...props} 
 />
 

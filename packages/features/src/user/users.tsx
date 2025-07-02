@@ -3,12 +3,12 @@ import { useQuery } from '@tanstack/react-query';
 import { Grid } from "@packages/design-system";
 
 type UserType = Features.UserType;
-type UsersProps =  DesignSystem.AsProps<'Link'> & Features.AsProps<'UserCard' | 'AppLayout'> & {
+type UsersProps = Features.AsProps<'UserCard' | 'AppLayout'> & {
 	getUsers: (search: string) => Promise<UserType[]>;
 	exportUsersToCSV: (users: Features.UserType[]) => void;
 }
 
-export function Users({ Link, AppLayout, UserCard, exportUsersToCSV, getUsers, ...props }: UsersProps) {
+export function Users({ AppLayout, UserCard, exportUsersToCSV, getUsers, ...props }: UsersProps) {
    const [search, setSearch] = useState("");
     const { data: users = []} = useQuery({ queryKey: ['users', search], queryFn: () => getUsers(search) });
    

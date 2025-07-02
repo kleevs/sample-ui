@@ -39,11 +39,11 @@ function App() {
                 <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
                     <Route path="users">
                         <Route index element={<Users />} />
-                        <Route path=":id" element={<User />} />
+                        <Route path=":id" Component={() => <User email={useParams().id || ''} />} />
                     </Route>
                     <Route path="projects">
                         <Route index element={<Projects />} />
-                        <Route path=":id" element={<Project id={+(useParams().id || '0')} />} />
+                        <Route path=":id" Component={() => <Project id={+(useParams().id || '0')} />} />
                     </Route>
                     <Route path="calendar">
                         <Route index element={<Calendar />} />

@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from "react";
 import { useQuery } from '@tanstack/react-query';
-import { Card, Grid } from "@packages/design-system";
+import { Card, Grid, Link } from "@packages/design-system";
 
 type ProjectType = Features.ProjectType;
-type ProjectsProps =  DesignSystem.AsProps<'Link'> & Features.AsProps<'AppLayout'> & {
+type ProjectsProps = Features.AsProps<'AppLayout'> & {
 	getProjects: (search: string) => Promise<ProjectType[]>;
 	exportProjectsToCSV: (projects: Features.ProjectType[]) => void;
 }
 
-export function Projects({ Link, AppLayout, getProjects, exportProjectsToCSV, ...props }: ProjectsProps) {
+export function Projects({ AppLayout, getProjects, exportProjectsToCSV, ...props }: ProjectsProps) {
 	const [search, setSearch] = useState("");
 	const { data: projects = []} = useQuery({ queryKey: ['projects', search], queryFn: () => getProjects(search) });
 
