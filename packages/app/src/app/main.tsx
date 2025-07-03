@@ -11,7 +11,8 @@ import '@fontsource/roboto/700.css';
 import { AppProvider } from '@packages/features';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
-import { Calendar, Projects, Project,  User, Users } from '../components';
+import { Calendar, Projects, Project,  User, Users, Link } from '../components';
+import { LinkComponentProvider } from '@packages/design-system';
 
 const domNode = document.getElementById('app')!;
 const root = createRoot(domNode);
@@ -33,24 +34,26 @@ const appTheme = createTheme({
 function App() {
     return <StrictMode>
       <ThemeProvider theme={appTheme}>
-        <CssBaseline />
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
-                    <Route path="users">
-                        <Route index element={<Users />} />
-                        <Route path=":id" Component={() => <User email={useParams().id || ''} />} />
-                    </Route>
-                    <Route path="projects">
-                        <Route index element={<Projects />} />
-                        <Route path=":id" Component={() => <Project id={+(useParams().id || '0')} />} />
-                    </Route>
-                    <Route path="calendar">
-                        <Route index element={<Calendar />} />
-                    </Route>
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <LinkComponentProvider Link={Link} >        
+          <CssBaseline />
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<AppProvider><Outlet /></AppProvider>}>
+                      <Route path="users">
+                          <Route index element={<Users />} />
+                          <Route path=":id" Component={() => <User email={useParams().id || ''} />} />
+                      </Route>
+                      <Route path="projects">
+                          <Route index element={<Projects />} />
+                          <Route path=":id" Component={() => <Project id={+(useParams().id || '0')} />} />
+                      </Route>
+                      <Route path="calendar">
+                          <Route index element={<Calendar />} />
+                      </Route>
+                  </Route>
+              </Routes>
+          </BrowserRouter>
+        </LinkComponentProvider>
       </ThemeProvider>
     </StrictMode>
 }

@@ -3,8 +3,8 @@
     "version": "0.0.1",
     "description": "",
     "scripts": {
-      "dev": "webpack serve --open",
-      "build": "webpack"
+      "_dev": "webpack serve --open",
+      "_build": "webpack"
     },
     "repository": {
       "type": "git",
