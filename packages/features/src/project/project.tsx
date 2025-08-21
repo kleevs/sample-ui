@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from '@tanstack/react-query';
-import { Button, Grid, Input, Panel, Link } from "@packages/design-system";
+import { Button, Grid, Input, Panel } from "@packages/design-system";
 
 type ProjectType = Features.ProjectType;
 type ProjectProps =  Features.AsProps<'AppLayout' | 'UserCard'> & {

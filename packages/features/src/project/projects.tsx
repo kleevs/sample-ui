@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useQuery } from '@tanstack/react-query';
-import { Card, Grid, Link } from "@packages/design-system";
+import { Card, Grid } from "@packages/design-system";
 
 type ProjectType = Features.ProjectType;
 type ProjectsProps = Features.AsProps<'AppLayout'> & {

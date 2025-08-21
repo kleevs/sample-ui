@@ -6,7 +6,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { AppProvider } from '@packages/features';
+import { AppProvider, UserManagerProvider } from '@packages/features';
 import CssBaseline from "@mui/material/CssBaseline";
 import { red } from '@mui/material/colors';
 import { LinkComponentProvider } from '@packages/design-system';
@@ -56,7 +56,9 @@ export default function RootLayout({
           <LinkComponentProvider Link={Link}>
             <CssBaseline />
             <AppProvider>
-              {children}
+              <UserManagerProvider authority="https://localhost:7126/oauth" clientId="client1" redirectUri="/signin-callback">
+                {children}
+              </UserManagerProvider>
             </AppProvider>
           </LinkComponentProvider>
       </ThemeProvider>

@@ -30,6 +30,7 @@
         "@testing-library/jest-dom": "*",
         "styled-components": "*",
         "@emotion/css": "*",
-        "dayjs": "*"
+        "dayjs": "*",
+        "oidc-client-ts": "*"
     }
 }
