@@ -1,4 +1,6 @@
 "use client"
 import { Signin } from '@packages/features';
 
-export default Signin;
+export default function SigninPage () {
+    return <Signin redirectUrl='/'/>
+}

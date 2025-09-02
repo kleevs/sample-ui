@@ -8,6 +8,7 @@ export function SigninCallback({ navigate }: { navigate: (url: string) => void }
     userManager
       ?.signinCallback()
       .then((user) => {
+        console.log(user);
         const redirectUrl = (user?.state as any)?.redirectUrl;
         if (redirectUrl) {
           navigate(redirectUrl);
